@@ -1,0 +1,11 @@
+# Netscape HTTP Cookie File
+
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzma	86293a70-a9fe-47b0-9928-d6111537b4a1
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzmb	1682458005
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzme	1912
+www.estantevirtual.com.br	TRUE	/	FALSE	253402257600	G_ENABLED_IDPS	google
+www.estantevirtual.com.br	TRUE	/	FALSE	1686160668	session	dca49b21d81b67a7c650e6cac3558d3e
+www.estantevirtual.com.br	TRUE	/	FALSE	0	iss	1
+www.estantevirtual.com.br	FALSE	/	FALSE	1701295373	__uzmc	864475269401
+www.estantevirtual.com.br	FALSE	/	FALSE	1701295373	__uzmd	1685570573
+www.estantevirtual.com.br	TRUE	/	FALSE	1686780174	usuario_cep	90035191
