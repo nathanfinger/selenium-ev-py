@@ -1,0 +1,6 @@
+/home/nathan/traca/imgs/
+/home/nathan/traca/capas/
+/home/nathan/traca/capas/capas/
+/home/nathan/traca/capas/capas/flat/
+/home/nathan/traca/capas/data/
+/home/nathan/traca/capas/datantigo/
