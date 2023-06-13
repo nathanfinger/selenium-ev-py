@@ -9,3 +9,15 @@ www.estantevirtual.com.br	TRUE	/	FALSE	0	iss	1
 www.estantevirtual.com.br	FALSE	/	FALSE	1701295373	__uzmc	864475269401
 www.estantevirtual.com.br	FALSE	/	FALSE	1701295373	__uzmd	1685570573
 www.estantevirtual.com.br	TRUE	/	FALSE	1686780174	usuario_cep	90035191
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzma	86293a70-a9fe-47b0-9928-d6111537b4a1
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzmb	1682458005
+www.estantevirtual.com.br	FALSE	/	FALSE	1698182805	__uzme	1912
+www.estantevirtual.com.br	TRUE	/	FALSE	253402257600	G_ENABLED_IDPS	google
+www.estantevirtual.com.br	TRUE	/	FALSE	0	_session_id	99dd78b7c548267e47f2f5322f5845bc
+www.estantevirtual.com.br	TRUE	/	FALSE	0	_ev_sso_session	V3pPaXkxYWVhenVnRzhHTUVna1c2blI0b1dmdVk2WkUvVUdNTU9VN2diQ29YSTdxZFBoWWFvcElhREdqZEM4RUgweVZuTUV0eUFyMXpJa1RZQytxRzlBbXE2WHVjdkpUTGVWWXkvTDEzZ0ZIMnEyeHdEWEZpV1NZbUgxdmlCT0JSc2xhWVpEWDdUYXFCbmZCTTB4MUl3PT0tLWJxZGhHS0V2M0wwakFac2E1ZWhXUHc9PQ%3D%3D--d2befc9809a70ce8c5ba5a286d429a04d3c2e809
+www.estantevirtual.com.br	FALSE	/	FALSE	1701878184	__uzmc	9896730490583
+www.estantevirtual.com.br	FALSE	/	FALSE	1701878184	__uzmd	1686153384
+www.estantevirtual.com.br	TRUE	/	FALSE	1686765980	session	ed0b117a11aeb504c568d4cf7c54ecc4
+www.estantevirtual.com.br	TRUE	/	FALSE	0	iss	1
+www.estantevirtual.com.br	FALSE	/	FALSE	0	tgt	TGC-16861609426902-UPDe26rTAfw6hlGvzbfdTMdUmJXGjVbpb0C4Izq1
+www.estantevirtual.com.br	TRUE	/	FALSE	1687370546	usuario_cep	90035191
