@@ -62,6 +62,7 @@ shared['texts'] = {
     # 'editaction': "No results yet",
     'imgpath': "",
 }
+file_excel =''
 
 
 
@@ -276,7 +277,8 @@ def checaRepetidos(driver,opts):
 # para ler os IDs etc
 def loadExcelFile(file_name=''):
     if file_name=='':
-        print('Carregando arquivo: '+ str(getExcelFile()))
+        file_excel = getExcelFile()
+        print('Carregando arquivo: '+ str(file_excel))
         df0 = pd.read_excel(getExcelFile(), converters={'ID': int})
     else:
         print('Carregando arquivo: '+ file_name)
@@ -534,7 +536,7 @@ def startRobot(df=df0, minID=1000000, maxID=1600000, driver='', namespace=''):
         # save last processed row for later 
         row = df1.iloc[ind]
         saveLastRow(row,namespace)
-        msg('row '+str(ind) ,type='print')
+        msg('file 'str(file_excel)' row '+str(ind) ,type='print')
 
         # stop flag
         if(shared['vars']['stop'] == True):
