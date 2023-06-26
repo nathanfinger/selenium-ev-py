@@ -11,7 +11,10 @@
 - Log files must be initialized containing the ID in the last row. 
 - Please login in every profile before using in headless mode.
 ###### run
---  python3 selenium-ev.py [options]
+```shell
+python3 selenium-ev.py [options]
+python3 selenium-ev.py planilha1.xlsx planilha1.log profile1 browser ...
+```
 ###### options
 - example: python3 selenium-ev.py acervo_file.xlsx log_file.log profile3 browser gui
 -- browser - opens browser without headless mode (to manually login)
@@ -38,5 +41,12 @@ One can import the cookies using 'setCookies'
 If importing EV cookies, it is advised to change the domains to 'www.estantevirtual.com.br'
 
 
+## Processing logs
+Running
+```shell
+python3 process_logs.py
+```
+this will process the .log files and save lists for 'capa_colocada', 'multiplos_resultados' and 'image not found'.
+it also creates a new spreadsheet with the unprocessed rows/ids based on a HARD-CODED sheet taken as the original initial file 
 ## Known Bugs Errors
-It shouldn't crash on errors. It won't restart automatically on errors. 
+It should crash on errors. It won't restart automatically on errors. 
