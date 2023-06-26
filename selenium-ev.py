@@ -492,7 +492,9 @@ def read_last_line(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
         last_line = lines[-1].strip()  # Remove any leading/trailing whitespace
-        return last_line
+        last_line2 = lines[-2].strip()  # Remove any leading/trailing whitespace
+        return str(last_line)+str(last_line2)
+
 def extract_tracaId(string):
     pattern = r'\d{7}'  # Matches a sequence of 7 digits
     matches = re.findall(pattern, string)
@@ -509,7 +511,7 @@ def getLastIdFromLogsFile():
 
 df0 = ''
 # Main Loop
-def startRobot(df=df0, minID=1000000, maxID=1600000, driver='', namespace=''):
+def startRobot(df=df0, minID=1, maxID=1600000, driver='', namespace=''):
     print('Iniciando Robô entre IDs '+ str(minID) + ' e ' + str(maxID))
 
     # filtra dados
@@ -536,7 +538,7 @@ def startRobot(df=df0, minID=1000000, maxID=1600000, driver='', namespace=''):
         # save last processed row for later 
         row = df1.iloc[ind]
         saveLastRow(row,namespace)
-        msg('file 'str(file_excel)' row '+str(ind) ,type='print')
+        msg('file ' + str(file_excel) + ' row '+str(ind) ,type='print')
 
         # stop flag
         if(shared['vars']['stop'] == True):
@@ -545,12 +547,12 @@ def startRobot(df=df0, minID=1000000, maxID=1600000, driver='', namespace=''):
             break;
 
         # max ID already reached
-        if(str(row['ID']) > str(maxID)):
+        if(str(row['ID']).zfill(8) > str(maxID).zfill(8)):
             msg('ID máximo ultrapassado... ignoring',type='print')
             continue ;
 
         # min ID reached
-        if(str(row['ID']) < str(minID)):
+        if(str(row['ID']).zfill(8) < str(minID).zfill(8)):
             msg('Índice mínimo ultrapassado... Robot Stopping',type='print')
             break;
 
@@ -580,7 +582,7 @@ def startMainRobot(restarted=False):
         except: 
             shared['vars']['lastRow']['ID'] = getLastIdFromLogsFile()
 
-    bot_thread = threading.Thread(target = lambda: startRobot(df=df0, maxID=shared['vars']['lastRow']['ID'], minID=100000, driver='', namespace='lastRow'))
+    bot_thread = threading.Thread(target = lambda: startRobot(df=df0, maxID=shared['vars']['lastRow']['ID'], minID=1, driver='', namespace='lastRow'))
     bot_thread.daemon = False  
     bot_thread.start()        
     return bot_thread
