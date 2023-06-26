@@ -1,4 +1,8 @@
 # selenium-ev
+This is a big mess, mostly a exploratory method to automatically upload covers on EV. 
+Some os the stuff was done to learn more about python and its world.
+It works through a xlsx from EV, reading every line for an 'ID' column, then using their search feature to look inside the description (any field actually) for that ID. 
+Then it opens the edit page and uploads a cover from the local OS.
 
 #### Config
 - edit the file folders.txt listing the folders where the covers could be
