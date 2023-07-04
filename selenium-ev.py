@@ -227,6 +227,12 @@ def getImageFilePath(id):
         pathimg = basePath+str(id)+'.jpg'
         if(os.path.exists(pathimg)):
             return pathimg
+        pathimg = basePath+str(id)+'.jpeg'
+        if(os.path.exists(pathimg)):
+            return pathimg
+        pathimg = basePath+str(id)+'.jpe'
+        if(os.path.exists(pathimg)):
+            return pathimg
 
     msg('Imagem não encontrada em lugar algum: '+  str(id), type='img404')
     return False;
@@ -373,13 +379,14 @@ def alteraCapa(driver, path):
 
 
 
-def editaLivro(driver, capaPath, estante, editaEditora=True, editaDescricao=True, ano1989=True):
+def editaLivro(driver, capaPath, estante, idTraca=0, editaEditora=True, editaDescricao=True, ano1989=True):
+    idTraca = str(idTraca).zfill(7)
     time.sleep(0.1)
     jaTemCapa = temCapa(driver)
 
     # se já tem capa não faz o resto
     if(jaTemCapa):
-        msg('Capa já existe', type='temcapa')
+        msg('Capa já existe'+capaPath, type='temcapa')
         return False;
 
     # se não tiver capa edita tudo que precisa
@@ -408,19 +415,19 @@ def editaLivro(driver, capaPath, estante, editaEditora=True, editaDescricao=True
 
 # v2
 # entra na página de edição do livro
-def getBookEditPage(driver, idTraca):
-    msg('buscando livro de ID: ' + str(idTraca), type='busca')
-    driver.get(getBuscaId(idTraca))
+def getBookEditPage(driver, myId):
+    msg('buscando livro de ID: ' + str(myId), type='busca')
+    driver.get(getBuscaId(myId))
 
     run = ifErrorRefresh(driver)
     if(run=='stop'): return 'stop';
 
-    checaRepetidos(driver, {'tracaId' : str(idTraca)})
+    checaRepetidos(driver, {'tracaId' : str(myId)})
     temResultado = getLinkEditar(driver)
     if(not temResultado):
         return False;
     else:
-        msg('Editando livro de ID: ' + str(idTraca),type="edit")
+        msg('Editando livro de ID: ' + str(myId),type="edit")
         return True
 
 
@@ -473,6 +480,7 @@ def callRobot_v2(driver, row):
     edicaoLivro = editaLivro(driver, capaPath, estante, 
                editaEditora = True, 
                editaDescricao = True, 
+               idTraca = idTraca,             
                ano1989= (ano>1989 and str(isbn).lower()=='nan'))
 
     # retornou da edição
@@ -583,8 +591,8 @@ def startMainRobot(restarted=False):
             shared['vars']['lastRow']['ID'] = getLastIdFromLogsFile()
 
     bot_thread = threading.Thread(target = lambda: startRobot(df=df0, maxID=shared['vars']['lastRow']['ID'], minID=1, driver='', namespace='lastRow'))
-    bot_thread.daemon = False  
-    bot_thread.start()        
+    bot_thread.daemon = False
+    bot_thread.start()
     return bot_thread
 def restartRobot():
     stopMainRobot()
@@ -594,7 +602,8 @@ def restartRobot():
 def autoRestartRobotNoGUI():
     restartRobot()
     print('Starting without Tkinter GUI...')
-    window.after(1 * 60 * 60 * 1000, autoRestartRobot)
+    try: window.after(1 * 60 * 60 * 1000, autoRestartRobot)
+    except: pass;
 
 def loginBrowser():
     shared['vars']['stop'] = False
